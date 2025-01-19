@@ -11,7 +11,7 @@ public:
 class RobotNowy {
 public:
     void idzDo(double kat, double odleglosc) {
-        std::cout << "RobotNowy idzie do: (" << kat << " stopni, " << odleglosc << ")\n";
+        std::cout << "RobotNowy idzie do: (" << kat << " °, " << odleglosc << ")\n";
     }
 };
 
@@ -24,15 +24,18 @@ public:
         double odleglosc = sqrt(x * x + y * y);
         double kat = atan2(y, x) * 180.0 / M_PI; // Konwersja na stopnie
         robotNowy.idzDo(kat, odleglosc);
-        std::cout << "Robot idzie do: (" << kat << " stopni, " << odleglosc << ")\n";
+        std::cout << "Robot idzie do: (" << kat << " °," << odleglosc << ")\n";
     }
 };
 
 int main() {
     AdapterRobota adapter;
     double x, y;
-    std::cout << "Podaj współrzędne x i y: ";
-    std::cin >> x >> y;
+    std::cout << "Podaj współrzędną x: ";
+    std::cin >> x;
+    std::cout << "Podaj współrzędną y: ";
+    std::cin >> y;
+    std::cout << "Wprowadzone współrzędne: (" << x << ", " << y << ")\n";
     adapter.idzDo(x, y);
     return 0;
 }
